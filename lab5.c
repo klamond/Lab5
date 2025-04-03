@@ -39,8 +39,10 @@ void outhex(char N){
 }
 
 void main() {
-  volatile int   *const HEXDISP = (int   *)0x000088A0; // display hex digits 
-  volatile short *const HEXCTRL = (short *)0x000088B0; // hex control register  	
+  volatile int   *const HEXDISP = (int   *)0x000088A0; // hex data register 
+  volatile short *const HEXCTRL = (short *)0x000088B0; // hex control register
+
+
     int	 count;	 		// define a counter
 
 //    int test = 120;	// test value for hex display
@@ -57,5 +59,11 @@ void main() {
     	count = count + 1;	// increment the count
 
     } // end while
+
+
+/*  while loop condenced to one line
+    while(1) {*HEXDISP = count++;} 
+*/
+
 
 } // end main
